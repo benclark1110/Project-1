@@ -1,5 +1,14 @@
 $(document).ready(function(){
 
+    var allowedCharacters = "qwertyuiopasdfghjklzxcvbnm"
+
+    document.onkeyup = function(event) {
+        //Preventing user from selecting anything other than letters
+        if (!allowedCharacters.includes(event.key)) {
+            $('#exampleModal').modal(show)
+        }
+    }
+
     //on submit event listener
     $("#submit").on("click", function(event){
         //to stop page from reloading on 'submit' click
@@ -48,26 +57,37 @@ $(document).ready(function(){
                 //changing the image displayed based on the responst from weather API
                 if (weatherResponse2.consolidated_weather[0].weather_state_abbr == "sn") {
                     weatherState = "sn";
+                    altValue = "snow";
                 } else if (weatherResponse2.consolidated_weather[0].weather_state_abbr == "sl") {
                     weatherState = "sl";
+                    altValue = "sleet";
                 } else if (weatherResponse2.consolidated_weather[0].weather_state_abbr == "h") {
                     weatherState = "h";
+                    altValue = "hail";
                 } else if (weatherResponse2.consolidated_weather[0].weather_state_abbr == "t") {
                     weatherState = "t";
+                    altValue = "thunderstorm";
                 } else if (weatherResponse2.consolidated_weather[0].weather_state_abbr == "hr") {
                     weatherState = "hr";
+                    altValue = "heavy rain";
                 } else if (weatherResponse2.consolidated_weather[0].weather_state_abbr == "lr") {
                     weatherState = "lr";
+                    altValue = "light rain";
                 } else if (weatherResponse2.consolidated_weather[0].weather_state_abbr == "s") {
                     weatherState = "s";
+                    altValue = "showers";
                 } else if (weatherResponse2.consolidated_weather[0].weather_state_abbr == "hc") {
                     weatherState = "hc";
+                    altValue = "heavy cloud";
                 } else if (weatherResponse2.consolidated_weather[0].weather_state_abbr == "lc") {
                     weatherState = "lc";
+                    altValue = "light cloud";
                 } else {
                     weatherState = "c";
+                    altValue = "clear";
                 };
                 $("#weatherPic").attr("src", "https://www.metaweather.com/static/img/weather/" + weatherState + ".svg");
+                $("#weatherPic").attr("alt", altValue);
         });
     });
 
@@ -88,9 +108,15 @@ $(document).ready(function(){
             console.log(foodResponse);
             for ( i = 0; i < foodResponse.businesses.length; i++) {
                 var foodDiv = $("<div>");
-                var $p = $("<p>").text("Name: " + foodResponse.businesses[i].name);
+                var $p = $("<p>").text(foodResponse.businesses[i].name);
+                var $p2 = $("<p>").text(foodResponse.businesses[i].categories[0].title);
+                var $p3 = $("<p>").text(foodResponse.businesses[i].rating + " Stars");
+                var $hr = $("<hr>");
                 foodDiv.addClass("foodInfo");
                 foodDiv.append($p);
+                foodDiv.append($p2);
+                foodDiv.append($p3);
+                foodDiv.append($hr);
                 $("#foodGoesHere").prepend(foodDiv);
             }
         });
