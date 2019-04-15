@@ -1,3 +1,8 @@
+/////////return will stop cde from running...use for if input was not a city
+
+
+
+
 $(document).ready(function(){
 
     var allowedCharacters = "qwertyuiopasdfghjklzxcvbnm"

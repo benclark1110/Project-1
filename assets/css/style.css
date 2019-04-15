@@ -1,3 +1,8 @@
+body{
+    background-image: url("https://images.all-free-download.com/images/graphicthumb/fast_food_background_various_symbols_sketch_repeating_design_6828045.jpg");
+    font-family: sans-serif;
+}
+
 .display-4, .lead {
     text-align: center;
 }
@@ -6,11 +11,13 @@
     margin-bottom: 32px;
     padding: 0px;
 }
+
  .mainCards{
      margin: 0;
      padding: 0;
  }
 
- body{
-    background-image: url("https://images.all-free-download.com/images/graphicthumb/fast_food_background_various_symbols_sketch_repeating_design_6828045.jpg");
-}
+ .jumbotron{
+     background: darkmagenta;
+     color: #ffff;
+ }
