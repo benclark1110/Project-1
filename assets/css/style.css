@@ -17,7 +17,13 @@ body{
      padding: 0;
  }
 
- .jumbotron{
+ .jumbotron, .card-header{
      background: darkmagenta;
      color: #ffff;
+ }
+
+ .card-body{
+     background: darkcyan;
+     color: #ffff;
+
  }

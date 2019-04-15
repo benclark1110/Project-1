@@ -1,21 +1,28 @@
 /////////return will stop cde from running...use for if input was not a city
+/////MAYBE CREATE A NEW TAB THAT SHOWS ALL RESTAURANTS YOUVE SEARCHED OR SAVED---FIREBASE
 
 
 
 
 $(document).ready(function(){
 
-    var allowedCharacters = "qwertyuiopasdfghjklzxcvbnm"
+    //var allowedCharacters = "qwertyuiopasdfghjklzxcvbnm"
 
-    document.onkeyup = function(event) {
-        //Preventing user from selecting anything other than letters
-        if (!allowedCharacters.includes(event.key)) {
-            $('#exampleModal').modal(show)
+    //document.onkeyup = function(event) {
+        //if (!allowedCharacters.includes(event.key)) {
+            //$('#exampleModal').modal(show)
+        //}
+    //}
+
+    function formValidation() {
+        if ($("#cityName").val().trim() == "") {
+            alert("Please Enter a City");////////////////////replace with modal
         }
     }
 
     //on submit event listener
     $("#submit").on("click", function(event){
+        formValidation()
         //to stop page from reloading on 'submit' click
         event.preventDefault();
         //to clear out food info if anything was present before
