@@ -6,37 +6,40 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Project 1</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
     <div class="container">
         <div class="jumbotron jumbotron-fluid">
-            <h1 class="display-4">Food/weather App</h1>
-            <p class="lead">Other Words</p>
+            <h1 class="pageTitle">To Food, Or Not To Food</h1>
+            <p class="lead">That is the Question</p>
         </div>
-        <div class="card">
-            <div class="card-header">Your Location (city)</div>
-            <div class="card-body">
+        <div class="card row">
+            <div class="card-title">Desired Location (city)</div>
+            <div>
                 <form>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Enter your city:</label>
-                        <input class="form-control" id="cityName" aria-describedby="emailHelp" placeholder="enter city here">
+                    <div class="input-field">
+                        
+                        <i class="material-icons prefix">location_city</i>
+                        <label for="icon_prefix"></label>
+                        <input class="validate cityName" id="icon_prefix" type="text" aria-describedby="emailHelp" placeholder="enter city here">
                     </div>
-                    <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                    <a type="submit" id="submit" class="btn">Submit</a>
                 </form>
             </div>
         </div>
-        <div class="container row mainCards">
-            <div class="card col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <div class="card-header">Food</div>
-                <div class="card-body">
+        <div class="row mainCards">
+            <div class="card col s12 m12 l6">
+                <div class="card-title">Food</div>
+                <div>
                     <div id="foodGoesHere"></div>
                 </div>
             </div>
-            <div class="card col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <div class="card-header">Weather</div>
-                <div class="card-body">
+            <div class="card col s12 m12 l6">
+                <div class="card-title">Weather</div>
+                <div>
                     <div class="weatherInfo">
                         <div id="city"></div>
                         <br />

@@ -1,34 +1,16 @@
-/////////return will stop cde from running...use for if input was not a city
-/////MAYBE CREATE A NEW TAB THAT SHOWS ALL RESTAURANTS YOUVE SEARCHED OR SAVED---FIREBASE
-
-
-
-
 $(document).ready(function(){
 
-    //var allowedCharacters = "qwertyuiopasdfghjklzxcvbnm"
-
-    //document.onkeyup = function(event) {
-        //if (!allowedCharacters.includes(event.key)) {
-            //$('#exampleModal').modal(show)
-        //}
-    //}
-
-    function formValidation() {
-        if ($("#cityName").val().trim() == "") {
-            alert("Please Enter a City");////////////////////replace with modal
-        }
-    }
+    $(".mainCards").hide();
 
     //on submit event listener
     $("#submit").on("click", function(event){
-        formValidation()
         //to stop page from reloading on 'submit' click
         event.preventDefault();
-        //to clear out food info if anything was present before
+        console.log("working");
+        //to clear out food/weather info if anything was present before
         $(".foodInfo").empty();
         //getting user input
-        cityName = $("#cityName").val().trim();
+        cityName = $(".cityName").val().trim();
         console.log(cityName);
     
         //1st ajax call to Meta Weather to get WOEID for that City
@@ -62,6 +44,8 @@ $(document).ready(function(){
             }).then(function(weatherResponse2) {
                 console.log(weatherResponse2);
                 console.log(weatherResponse2.consolidated_weather[0].the_temp);
+                var $hr = $("<hr>");
+                $(".weatherInfo").prepend($hr);
                 $("#city").text("City: " + cityName)
                 $("#temp").text("Temperature (F): " + (weatherResponse2.consolidated_weather[0].the_temp * 1.8 + 32).toFixed(2));
                 $("#humidity").text("Humidity: " + weatherResponse2.consolidated_weather[0].humidity);
@@ -119,18 +103,19 @@ $(document).ready(function(){
         }).then(function(foodResponse) {
             console.log(foodResponse);
             for ( i = 0; i < foodResponse.businesses.length; i++) {
+                //dynamically creating food response items
                 var foodDiv = $("<div>");
-                var $p = $("<p>").text(foodResponse.businesses[i].name);
+                var $p = $("<h6>").text(foodResponse.businesses[i].name);
                 var $p2 = $("<p>").text(foodResponse.businesses[i].categories[0].title);
                 var $p3 = $("<p>").text(foodResponse.businesses[i].rating + " Stars");
+                var $img = $("<img>").attr("src", foodResponse.businesses[i].image_url).attr("height", "110");
                 var $hr = $("<hr>");
                 foodDiv.addClass("foodInfo");
-                foodDiv.append($p);
-                foodDiv.append($p2);
-                foodDiv.append($p3);
-                foodDiv.append($hr);
+                foodDiv.append($hr, $img, $p, $p2, $p3 );
                 $("#foodGoesHere").prepend(foodDiv);
             }
+            $(".mainCards").show();
         });
+       
     });
 });

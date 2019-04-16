@@ -1,15 +1,37 @@
 body{
     background-image: url("https://images.all-free-download.com/images/graphicthumb/fast_food_background_various_symbols_sketch_repeating_design_6828045.jpg");
     font-family: sans-serif;
+    border-radius: 5px;
+    margin: 0;
+    padding: 0;
+    border: 0;
 }
 
-.display-4, .lead {
+.jumbotron{
+    background: green;
+    color: #ffff;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.pageTitle, .lead {
     text-align: center;
+    margin: 0;
+}
+
+.pageTitle {
+    margin: 0;
+}
+
+#submit {
+    background: green;
 }
 
 .card{
-    margin-bottom: 32px;
-    padding: 0px;
+    padding: 10px;
+    margin: 0px 0px 20px 0px;
+    background: lightskyblue;
+    color: #ffff;
 }
 
  .mainCards{
@@ -17,13 +39,7 @@ body{
      padding: 0;
  }
 
- .jumbotron, .card-header{
-     background: darkmagenta;
-     color: #ffff;
+ img{
+     float: right;
  }
-
- .card-body{
-     background: darkcyan;
-     color: #ffff;
-
- }
+ 
