@@ -108,7 +108,7 @@ $(document).ready(function(){
                 var $p = $("<h6>").text(foodResponse.businesses[i].name);
                 var $p2 = $("<p>").text(foodResponse.businesses[i].categories[0].title);
                 var $p3 = $("<p>").text(foodResponse.businesses[i].rating + " Stars");
-                var $img = $("<img>").attr("src", foodResponse.businesses[i].image_url).attr("height", "110");
+                var $img = $("<img>").attr("src", foodResponse.businesses[i].image_url).attr("height", "104");
                 var $hr = $("<hr>");
                 foodDiv.addClass("foodInfo");
                 foodDiv.append($hr, $img, $p, $p2, $p3 );
